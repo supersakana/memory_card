@@ -1,14 +1,19 @@
 <template>
-  <p class="text-rose-500 text-3xl font-bold">Memory Card</p>
+    <div class="w-full md:w-screen p-5">
+        <GameScore />
+        <GameCard />
+    </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import GameCard from './components/GameCard.vue'
+import GameScore from './components/GameScore.vue'
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld
+    GameCard,
+    GameScore
   }
 }
 </script>
