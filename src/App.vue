@@ -1,8 +1,11 @@
 <template>
-    <div class="w-full md:h-screen p-5 text-[#303030] bg-[#f0f4f5]">
+    <div class="h-screen p-5 text-[#303030] bg-[#f0f4f5]">
         <GameScore />
-        <div></div>
-        <GameCard />
+        <div class="my-10 h-[70vh] grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <div :key="index" v-for="(char, index) in chars">
+            <GameCard :char="char" />
+          </div>
+        </div>
     </div>
 </template>
 
@@ -15,7 +18,13 @@ export default {
   components: {
     GameCard,
     GameScore
-  }
+  },
+  data(){
+    return {
+      chars: ['火', '水', '木', '風','日','月',
+              '火', '水', '木', '風','日','月']
+    }
+  },
 }
 </script>
 
