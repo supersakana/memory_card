@@ -1,4 +1,4 @@
-![memory_card](src/assets/media/game.png)
+![memory_card](src/assets/media/responsive.png)
 
 # Memory Card
 
