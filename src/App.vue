@@ -1,6 +1,6 @@
 <template>
-    <div class="h-screen p-5 text-[#303030] bg-[#f0f4f5]">
-        <GameScore />
+    <div class="h-screen p-5">
+        <GameScore :current="current_score" :best="best_score" />
         <div class="my-10 h-[70vh] grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           <div :key="index" v-for="(char, index) in chars">
             <GameCard @play-round="playRound" :char="char" />
@@ -21,8 +21,10 @@ export default {
   },
   data(){
     return {
+      current_score: 0,
+      best_score: 0,
       chars: ['火', '水', '木', '風','日','月',
-              '火', '水', '木', '風','日','月']
+              '火', '水', '木', '風','日','月'],
     }
   },
   mounted() {
