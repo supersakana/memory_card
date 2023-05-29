@@ -23,6 +23,7 @@ export default {
     return {
       current_score: 0,
       best_score: 0,
+      memory: [],
       chars: ['火', '水', '木', '風','日','月',
               '火', '水', '木', '風','日','月'],
     }
@@ -36,7 +37,14 @@ export default {
     },
     playRound(char){
       this.shuffle()
-      console.log(char)
+      if(this.memory.includes(char)){
+        this.memory = []
+        this.current_score = 0
+      } else {
+        this.memory = [...this.memory, char]
+        this.current_score = this.current_score + 1
+        if(this.current_score >  this.best_score) this.best_score = this.current_score
+      }
     }
   }
 }
