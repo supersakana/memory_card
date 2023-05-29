@@ -1,24 +1,17 @@
-# memory_card
+![memory_card](src/assets/media/game.png)
 
-## Project setup
-```
-npm install
-```
+# Memory Card
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+A simple game to test your memory
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## About
 
-### Lints and fixes files
-```
-npm run lint
-```
+This is based on The Odin Project [Memory Card](https://www.theodinproject.com/lessons/javascript-memory-card). My goal was to learn about [Vue Lifecycle Hooks](https://vuejs.org/guide/essentials/lifecycle.html) to shuffle the game card components before they are mounted. It's a simple use of the `mounted` method but I can see how hooking into different parts of a component's lifecycle can be useful for specific cases. Overall, this was a quick, easy, and fun vue project. Styled and responsive with Tailwind CSS.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## How to play
+
+- Click on a unique card each round to stack up your points.
+
+- The score will be reset if you click on a card you've already selected
+
+- The best score you can get is 6
