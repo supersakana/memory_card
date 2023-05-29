@@ -3,7 +3,7 @@
         <GameScore />
         <div class="my-10 h-[70vh] grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           <div :key="index" v-for="(char, index) in chars">
-            <GameCard :char="char" />
+            <GameCard @play-round="playRound" :char="char" />
           </div>
         </div>
     </div>
@@ -25,6 +25,18 @@ export default {
               '火', '水', '木', '風','日','月']
     }
   },
+  mounted() {
+    this.shuffle()
+  },
+  methods: {
+    shuffle(){
+      this.chars.sort(() => Math.random() - 0.5);
+    },
+    playRound(char){
+      this.shuffle()
+      console.log(char)
+    }
+  }
 }
 </script>
 
