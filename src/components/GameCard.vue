@@ -16,6 +16,3 @@ props: {
 }
 }
 </script>
-
-<style>
-</style>
