@@ -6,12 +6,16 @@
             <GameCard @play-round="playRound" :char="char" />
           </div>
         </div>
+        <span>{{ storeGame.name }}</span>
     </div>
 </template>
 
 <script>
 import GameCard from './components/GameCard.vue'
 import GameScore from './components/GameScore.vue'
+import { useGameStore } from './store/game'
+import { computed } from 'vue'
+
 
 export default {
   name: 'App',
@@ -19,13 +23,17 @@ export default {
     GameCard,
     GameScore
   },
-  data(){
+  setup() {
+    const storeGame = useGameStore()
+    const chars = computed(() => storeGame.chars)
+    const best_score = computed(() => storeGame.best_score)
+    const current_score = computed(() => storeGame.current_score)
+
     return {
-      current_score: 0,
-      best_score: 0,
-      memory: [],
-      chars: ['火', '水', '木', '風','日','月',
-              '火', '水', '木', '風','日','月'],
+      storeGame,
+      chars,
+      best_score,
+      current_score,
     }
   },
   mounted() {
@@ -33,17 +41,17 @@ export default {
   },
   methods: {
     shuffle(){
-      this.chars.sort(() => Math.random() - 0.5);
+      this.chars = this.chars.sort(() => Math.random() - 0.5);
     },
     playRound(char){
       this.shuffle()
-      if(this.memory.includes(char)){
-        this.memory = []
-        this.current_score = 0
+      if(this.storeGame.memory.includes(char)){
+        this.storeGame.memory = []
+        this.storeGame.current_score = 0
       } else {
-        this.memory = [...this.memory, char]
-        this.current_score = this.current_score + 1
-        if(this.current_score >  this.best_score) this.best_score = this.current_score
+        this.storeGame.memory = [...this.storeGame.memory, char]
+        this.storeGame.current_score = this.storeGame.current_score + 1
+        if(this.storeGame.current_score >  this.storeGame.best_score) this.storeGame.best_score = this.storeGame.current_score
       }
     }
   }
