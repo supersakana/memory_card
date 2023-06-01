@@ -5,22 +5,22 @@
     </div>
 </template>
   
-  <script>
-  import { useGameStore } from '@/store/game'
-  import { computed } from 'vue'
+<script>
+import { useGameStore } from '@/store/game'
+import { computed } from 'vue'
 
-  export default {
-    name: 'GameScore',
-    setup() {
-      const storeGame = useGameStore()
-      const best_score = computed(() => storeGame.best_score)
-      const current_score = computed(() => storeGame.current_score)
+export default {
+  name: 'GameScore',
+  setup() {
+    const storeGame = useGameStore()
+    const best_score = computed(() => storeGame.best_score)
+    const current_score = computed(() => storeGame.current_score)
 
-      return {
-        storeGame,
-        best_score,
-        current_score,
-      }
-    },
-  }
-  </script>
+    return {
+      storeGame,
+      best_score,
+      current_score,
+    }
+  },
+}
+</script>
