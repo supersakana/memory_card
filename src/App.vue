@@ -3,7 +3,7 @@
         <GameScore />
         <div class="my-10 h-[70vh] grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           <div :key="index" v-for="(char, index) in chars">
-            <GameCard @play-round="storeGame.playRound" :char="char" />
+            <GameCard :char="char" />
           </div>
         </div>
     </div>

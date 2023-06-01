@@ -12,15 +12,15 @@
   export default {
     name: 'GameScore',
     setup() {
-    const storeGame = useGameStore()
-    const best_score = computed(() => storeGame.best_score)
-    const current_score = computed(() => storeGame.current_score)
+      const storeGame = useGameStore()
+      const best_score = computed(() => storeGame.best_score)
+      const current_score = computed(() => storeGame.current_score)
 
-    return {
-      storeGame,
-      best_score,
-      current_score,
-    }
-  },
+      return {
+        storeGame,
+        best_score,
+        current_score,
+      }
+    },
   }
   </script>
